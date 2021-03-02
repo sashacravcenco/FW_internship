@@ -7,6 +7,7 @@ class BookList {
     allBooks = [];
 
     add(book) {
+        // On the fisrt addition of the book, set it to current reading
         if (this.allBooks.length === 0) {
             this.currentReading = book;
         }
@@ -23,6 +24,10 @@ class BookList {
         this.currentReading = this.nextToRead;
         this.numberOfReadBooks++;
         this.numberOfUnreadBooks--; 
+        /* 
+            Because number of unread contains currently reading book as well, 
+            check if the currently reading book is latest and set next to read as null
+        */
         if (this.numberOfUnreadBooks === 1) {
             this.nextToRead = null;
         } else {
